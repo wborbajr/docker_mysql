@@ -11,7 +11,7 @@ MYSQL_DATABASE: xxxx
 MYSQL_PASSWORD: xxxx
 ```
 
-Create two folder to store development and production database locally
+Create two folder to store **_development_** and **_production_** database locally
 
 ```bash
 mkdir data_dev
@@ -20,7 +20,7 @@ mkdir data_prod
 
 ## Port
 
-MariaDB will expose port 60330 for development environment and 60331 for production environment.
+MariaDB will expose port **60330** for development environment and **60331** for production environment.
 You can change it at docker-compose.yaml for your own propose.
 
 ## To execute
