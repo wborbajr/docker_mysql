@@ -22,7 +22,7 @@ MYSQL_PASSWORD: xxxx
 
 All databases will be saved locally at data folder.
 
-Create two inside folder **docker_mysql**, to store **_development_** and **_production_** database locally.
+Create two folders inside **docker_mysql**, to store **_development_** and **_production_** database locally.
 
 **_PS_** If you decided to change folders name or path, please, remember to modify the entry **volumes** at **docker-compose.yaml**
 
@@ -55,7 +55,9 @@ docker-compose down
 
 ## Configuration
 
-You can setup your own configurations just changing file **my.conf** that is at config folder
+You can setup your own configurations just changing file **my.conf** that is at config folder.
+
+After setup your own MariaDB configuration, don't forget to enable at **docker-compose.yaml** at **volumes** section to read your configuration file, removing comment tag.
 
 ## Checking status
 
