@@ -1,0 +1,15 @@
+version: '3'
+services:
+  mysql-prod:
+    image: mariadb:latest
+    container_name: db_mysql_prod
+    ports:
+      - 60331:3306
+    volumes:
+      # - ./config/my.conf:/etc/mysql/conf.d/config-file.cnf
+      - ./data_prod:/var/lib/mysql:rw
+    environment:
+      MYSQL_ROOT_PASSWORD: 123mudar
+      MYSQL_USER: db_user
+      MYSQL_DATABASE: app_db
+      MYSQL_PASSWORD: db_user_pass

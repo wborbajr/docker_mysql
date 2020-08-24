@@ -43,14 +43,30 @@ You can change it at **docker-compose.yaml** for your own propose.
 
 ## To execute
 
+### Development
+
 ```bash
-docker-compose up -d
+docker-compose -f docker-compose-dev.yaml up -d
 ```
 
-# To stop
+### Production
 
 ```bash
-docker-compose down
+docker-compose -f docker-compose-prod.yaml up -d
+```
+
+## To stop
+
+### Stopping Development environment
+
+```bash
+docker-compose -f docker-compose-dev.yaml down
+```
+
+### Stopping Production environment
+
+```bash
+docker-compose -f docker-compose-prod.yaml down
 ```
 
 ## Configuration
@@ -62,5 +78,7 @@ After setup your own MariaDB configuration, don't forget to enable at **docker-c
 ## Checking status
 
 ```bash
-docker-compose ps
+docker-compose -f docker-compose-dev.yaml ps
+or
+docker-compose -f docker-compose-prod.yaml ps
 ```
