@@ -1,8 +1,15 @@
 ![Docker](https://github.com/wborbajr/docker_mysql/blob/master/docker.jpeg)
 
+## Downloading
+
+```bash
+git clone https://github.com/wborbajr/docker_mysql.git
+cd docker_mysql
+```
+
 ## MariaDB
 
-Before bring container up, please change environment variables at docker-compose.yaml
+Before bring container up, please change environment variables at **docker-compose.yaml**
 
 ```
 MYSQL_ROOT_PASSWORD: xxxxx
@@ -15,7 +22,14 @@ MYSQL_PASSWORD: xxxx
 
 All databases will be saved locally at data folder.
 
-Create two folder to store **_development_** and **_production_** database locally
+Create two inside folder **docker_mysql**, to store **_development_** and **_production_** database locally.
+
+**_PS_** If you decided to change folders name or path, please, remember to modify the entry **volumes** at **docker-compose.yaml**
+
+```
+volumes:
+    - ./data_prod:/var/lib/mysql:rw
+```
 
 ```bash
 mkdir data_dev
