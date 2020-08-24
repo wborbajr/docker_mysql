@@ -55,7 +55,7 @@ docker-compose down
 
 ## Configuration
 
-You can setup your own configurations just changing file **my.conf** that is at config folder.
+You can setup your own configurations just changing file **my.conf** located at config folder.
 
 After setup your own MariaDB configuration, don't forget to enable at **docker-compose.yaml** at **volumes** section to read your configuration file, removing comment tag.
 
