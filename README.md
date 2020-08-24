@@ -11,6 +11,10 @@ MYSQL_DATABASE: xxxx
 MYSQL_PASSWORD: xxxx
 ```
 
+## Database
+
+All databases will be saved locally at data folder.
+
 Create two folder to store **_development_** and **_production_** database locally
 
 ```bash
@@ -34,10 +38,6 @@ docker-compose up -d
 ```bash
 docker-compose down
 ```
-
-## Database
-
-All databases will be saved locally at data folder.
 
 ## Configuration
 
