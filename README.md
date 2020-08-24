@@ -21,7 +21,7 @@ mkdir data_prod
 ## Port
 
 MariaDB will expose port **60330** for development environment and **60331** for production environment.
-You can change it at docker-compose.yaml for your own propose.
+You can change it at **docker-compose.yaml** for your own propose.
 
 ## To execute
 
@@ -41,7 +41,7 @@ All databases will be saved locally at data folder.
 
 ## Configuration
 
-You can setup your own configurations just changing file my.conf that is at config folder
+You can setup your own configurations just changing file **my.conf** that is at config folder
 
 ## Checking status
 
