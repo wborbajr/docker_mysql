@@ -62,8 +62,3 @@ You can setup your own configurations just changing file **my.conf** that is at 
 ```bash
 docker-compose ps
 ```
-
-@startuml
-Bob -[#red]> Alice : hello
-Alice -[#0000FF]->Bob : ok
-@enduml
