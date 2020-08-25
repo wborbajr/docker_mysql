@@ -9,7 +9,7 @@ cd docker_mysql
 
 ## MariaDB
 
-Before bring container up, please change environment variables at **docker-compose.yaml**
+Before bring container up, please change environment settings at **.env**
 
 ```
 MYSQL_ROOT_PASSWORD: xxxxx
@@ -20,39 +20,45 @@ MYSQL_PASSWORD: xxxx
 
 ## Database
 
-All databases will be saved locally at data folder.
+All databases will be saved locally at data folder **./data/mysql**
 
-Create two folders inside **docker_mysql**, to store **_development_** and **_production_** database locally.
-
-**_PS_** If you decided to change folders name or path, please, remember to modify the entry **volumes** at **docker-compose.yaml**
+**PS:** If you decided to change folders name or path, please, remember to modify the entry **volumes** at **docker-compose.yaml**
 
 ```
 volumes:
-    - ./data_prod:/var/lib/mysql:rw
-```
-
-```bash
-mkdir data_dev
-mkdir data_prod
+    - ./data/mysql:/var/lib/mysql:rw
 ```
 
 ## Port
 
-MariaDB will expose port **60330** for development environment and **60331** for production environment.
+MariaDB will expose port **6033**, so remember to configure your MySQL Client to connect at **_Port: 6033_**
+
 You can change it at **docker-compose.yaml** for your own propose.
 
 ## To execute
 
-### Development
+### Just MariaDB
 
 ```bash
-docker-compose -f docker-compose-dev.yaml up -d
+docker-compose up -d database
 ```
 
-### Production
+Or you can run using Makefile
 
 ```bash
-docker-compose -f docker-compose-prod.yaml up -d
+make up-db
+```
+
+### Bringing up MariaDB and Adminer
+
+```bash
+docker-compose up -d
+```
+
+Or you can run using Makefile
+
+```bash
+make up-all
 ```
 
 ## To stop
@@ -60,13 +66,13 @@ docker-compose -f docker-compose-prod.yaml up -d
 ### Stopping Development environment
 
 ```bash
-docker-compose -f docker-compose-dev.yaml down
+docker-compose down
 ```
 
-### Stopping Production environment
+Or you can run using Makefile
 
 ```bash
-docker-compose -f docker-compose-prod.yaml down
+make down
 ```
 
 ## Configuration
@@ -75,10 +81,10 @@ You can setup your own configurations just changing file **my.conf** located at 
 
 After setup your own MariaDB configuration, don't forget to enable at **docker-compose.yaml** at **volumes** section to read your configuration file, removing comment tag.
 
+Alternatively you can setup an initial database to be created just modifying **init.sql** that it is at **initdb** folder and enabling at **docker-compose.yaml** at **volumes** section.
+
 ## Checking status
 
 ```bash
-docker-compose -f docker-compose-dev.yaml ps
-or
-docker-compose -f docker-compose-prod.yaml ps
+docker-compose ps
 ```

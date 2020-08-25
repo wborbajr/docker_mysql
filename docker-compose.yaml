@@ -1,0 +1,33 @@
+version: '3'
+services:
+  database:
+    image: mariadb:latest
+    container_name: ct_mariadb
+    hostname: maria-db
+    restart: always
+    ports:
+      - 6033:3306
+    volumes:
+      # - ./config/my.conf:/etc/mysql/conf.d/config-file.cnf
+      # - ./initdb/:/docker-entrypoint-initdb.d
+      - ./data/mysql:/var/lib/mysql:rw
+      - ./data/log:/var/log/mysql:rw
+        # - dbdata:/var/lib/mysql
+    # env_file:
+    #   - .env
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+
+  admin:
+    image: adminer
+    container_name: ct_adminer
+    restart: unless-stopped
+    ports:
+      - 8080:8080
+    links:
+      - database:maria-db
+# volumes:
+#   dbdata:
